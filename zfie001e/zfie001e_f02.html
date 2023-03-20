@@ -1,0 +1,814 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=gb2312" />
+<title>ZFIE001E_F02</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZFIE001E_F02</h2>
+<h3> Description: Include ZFIE001A_F02</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;包含&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZFIE001A_F02<br />
+*&---------------------------------------------------------------------*<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;FRM_HANDLE_TOOLBAR<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;为ALV&nbsp;OO工具栏增加按钮<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_E_OBJECT&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_handle_toolbar USING u_object TYPE REF TO cl_alv_event_toolbar_set.<br />
+&nbsp;&nbsp;DATA:&nbsp;lwa_toolbar&nbsp;TYPE&nbsp;stb_button.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;MOVE&nbsp;3&nbsp;TO&nbsp;lwa_toolbar-butn_type.<br />
+*&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+*&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+*&nbsp;&nbsp;MOVE&nbsp;'ZALL'&nbsp;TO&nbsp;lwa_toolbar-function.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"增加&lt;全选&gt;按钮<br />
+*&nbsp;&nbsp;MOVE&nbsp;icon_select_all&nbsp;&nbsp;TO&nbsp;lwa_toolbar-icon.<br />
+*&nbsp;&nbsp;MOVE&nbsp;TEXT-b01&nbsp;TO&nbsp;lwa_toolbar-quickinfo.<br />
+*&nbsp;&nbsp;MOVE&nbsp;TEXT-b01&nbsp;TO&nbsp;lwa_toolbar-text.<br />
+*&nbsp;&nbsp;MOVE&nbsp;'&nbsp;'&nbsp;TO&nbsp;lwa_toolbar-disabled.<br />
+*&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+*&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+<br />
+*&nbsp;&nbsp;MOVE&nbsp;3&nbsp;TO&nbsp;lwa_toolbar-butn_type.<br />
+*&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+*&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+*&nbsp;&nbsp;MOVE&nbsp;'ZDAL'&nbsp;TO&nbsp;lwa_toolbar-function.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"增加&lt;取消全选&gt;按钮<br />
+*&nbsp;&nbsp;MOVE&nbsp;icon_deselect_all&nbsp;&nbsp;TO&nbsp;lwa_toolbar-icon.<br />
+*&nbsp;&nbsp;MOVE&nbsp;TEXT-b02&nbsp;TO&nbsp;lwa_toolbar-quickinfo.<br />
+*&nbsp;&nbsp;MOVE&nbsp;TEXT-b02&nbsp;TO&nbsp;lwa_toolbar-text.<br />
+*&nbsp;&nbsp;MOVE&nbsp;'&nbsp;'&nbsp;TO&nbsp;lwa_toolbar-disabled.<br />
+*&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+*&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;MOVE&nbsp;3&nbsp;TO&nbsp;lwa_toolbar-butn_type.<br />
+&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+&nbsp;&nbsp;MOVE&nbsp;'ZBAC'&nbsp;TO&nbsp;lwa_toolbar-function.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"增加&lt;撤回到收款/票据平台&gt;按钮<br />
+&nbsp;&nbsp;MOVE&nbsp;icon_system_undo&nbsp;&nbsp;TO&nbsp;lwa_toolbar-icon.<br />
+&nbsp;&nbsp;MOVE&nbsp;TEXT-b07&nbsp;TO&nbsp;lwa_toolbar-quickinfo.<br />
+&nbsp;&nbsp;MOVE&nbsp;TEXT-b07&nbsp;TO&nbsp;lwa_toolbar-text.<br />
+&nbsp;&nbsp;MOVE&nbsp;'&nbsp;'&nbsp;TO&nbsp;lwa_toolbar-disabled.<br />
+&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+<br />
+&nbsp;&nbsp;MOVE&nbsp;3&nbsp;TO&nbsp;lwa_toolbar-butn_type.<br />
+&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+&nbsp;&nbsp;MOVE&nbsp;'ZDRK'&nbsp;TO&nbsp;lwa_toolbar-function.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"增加&lt;待认款信息&gt;按钮<br />
+&nbsp;&nbsp;MOVE&nbsp;icon_wf_workitem_ready&nbsp;&nbsp;TO&nbsp;lwa_toolbar-icon.<br />
+&nbsp;&nbsp;MOVE&nbsp;TEXT-b05&nbsp;TO&nbsp;lwa_toolbar-quickinfo.<br />
+&nbsp;&nbsp;MOVE&nbsp;TEXT-b05&nbsp;TO&nbsp;lwa_toolbar-text.<br />
+&nbsp;&nbsp;MOVE&nbsp;'&nbsp;'&nbsp;TO&nbsp;lwa_toolbar-disabled.<br />
+&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+<br />
+&nbsp;&nbsp;MOVE&nbsp;3&nbsp;TO&nbsp;lwa_toolbar-butn_type.<br />
+&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+&nbsp;&nbsp;MOVE&nbsp;'ZYRK'&nbsp;TO&nbsp;lwa_toolbar-function.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"增加&lt;已认款信息&gt;按钮<br />
+&nbsp;&nbsp;MOVE&nbsp;icon_wf_workitem_completed&nbsp;&nbsp;TO&nbsp;lwa_toolbar-icon.<br />
+&nbsp;&nbsp;MOVE&nbsp;TEXT-b06&nbsp;TO&nbsp;lwa_toolbar-quickinfo.<br />
+&nbsp;&nbsp;MOVE&nbsp;TEXT-b06&nbsp;TO&nbsp;lwa_toolbar-text.<br />
+&nbsp;&nbsp;MOVE&nbsp;'&nbsp;'&nbsp;TO&nbsp;lwa_toolbar-disabled.<br />
+&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+<br />
+&nbsp;&nbsp;MOVE&nbsp;3&nbsp;TO&nbsp;lwa_toolbar-butn_type.<br />
+&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+&nbsp;&nbsp;MOVE&nbsp;'ZRK'&nbsp;TO&nbsp;lwa_toolbar-function.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"增加&lt;认款&gt;按钮<br />
+&nbsp;&nbsp;MOVE&nbsp;icon_generate&nbsp;&nbsp;TO&nbsp;lwa_toolbar-icon.<br />
+&nbsp;&nbsp;MOVE&nbsp;TEXT-b03&nbsp;TO&nbsp;lwa_toolbar-quickinfo.<br />
+&nbsp;&nbsp;MOVE&nbsp;TEXT-b03&nbsp;TO&nbsp;lwa_toolbar-text.<br />
+&nbsp;&nbsp;MOVE&nbsp;'&nbsp;'&nbsp;TO&nbsp;lwa_toolbar-disabled.<br />
+&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+<br />
+&nbsp;&nbsp;MOVE&nbsp;3&nbsp;TO&nbsp;lwa_toolbar-butn_type.<br />
+&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+&nbsp;&nbsp;MOVE&nbsp;'ZRKCH'&nbsp;TO&nbsp;lwa_toolbar-function.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"增加&lt;认款撤回&gt;按钮<br />
+&nbsp;&nbsp;MOVE&nbsp;icon_status_reverse&nbsp;&nbsp;TO&nbsp;lwa_toolbar-icon.<br />
+&nbsp;&nbsp;MOVE&nbsp;TEXT-b04&nbsp;TO&nbsp;lwa_toolbar-quickinfo.<br />
+&nbsp;&nbsp;MOVE&nbsp;TEXT-b04&nbsp;TO&nbsp;lwa_toolbar-text.<br />
+&nbsp;&nbsp;MOVE&nbsp;'&nbsp;'&nbsp;TO&nbsp;lwa_toolbar-disabled.<br />
+&nbsp;&nbsp;APPEND&nbsp;lwa_toolbar&nbsp;TO&nbsp;u_object-&gt;mt_toolbar.<br />
+&nbsp;&nbsp;CLEAR&nbsp;lwa_toolbar.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;FRM_HANDLE_USER_COMMAND<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;响应ALV&nbsp;OO的按钮事件<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_E_UCOMM&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_handle_user_command USING u_ucomm TYPE syucomm .<br />
+&nbsp;&nbsp;DATA:&nbsp;lt_index_row&nbsp;TYPE&nbsp;lvc_t_row,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt_row_no&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;lvc_t_roid.<br />
+&nbsp;&nbsp;DATA:&nbsp;it_seltab&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;rsparams,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iw_seltab&nbsp;LIKE&nbsp;LINE&nbsp;OF&nbsp;it_seltab.<br />
+<br />
+&nbsp;&nbsp;CASE&nbsp;u_ucomm&nbsp;.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'ZALL'&nbsp;."全选<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_output&nbsp;ASSIGNING&nbsp;FIELD-SYMBOL(&lt;fs_output&gt;)&nbsp;WHERE&nbsp;box&nbsp;=&nbsp;''.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fs_output&gt;-box&nbsp;=&nbsp;'X'.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'ZDAL'&nbsp;."取消全选<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_output&nbsp;ASSIGNING&nbsp;&lt;fs_output&gt;&nbsp;WHERE&nbsp;box&nbsp;=&nbsp;'X'.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fs_output&gt;-box&nbsp;=&nbsp;''.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'ZBAC'."撤回到收款/票据平台<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATA(lt_output)&nbsp;=&nbsp;gt_output.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELETE&nbsp;lt_output&nbsp;WHERE&nbsp;box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIBE&nbsp;TABLE&nbsp;lt_output&nbsp;LINES&nbsp;DATA(lv_lines).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;lv_lines&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;TEXT-e02&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;lt_output&nbsp;TRANSPORTING&nbsp;NO&nbsp;FIELDS&nbsp;WHERE&nbsp;zrkzt&nbsp;NE&nbsp;'1'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXIT.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;EQ&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;TEXT-e14&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_cancel_trans."撤回到收款/票据平台<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'ZDRK'."获取待认款销售订单信息<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt_output&nbsp;=&nbsp;gt_output.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELETE&nbsp;lt_output&nbsp;WHERE&nbsp;box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SORT&nbsp;lt_output&nbsp;BY&nbsp;bukrs&nbsp;kunnr&nbsp;waers&nbsp;zrelno.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELETE&nbsp;ADJACENT&nbsp;DUPLICATES&nbsp;FROM&nbsp;lt_output&nbsp;COMPARING&nbsp;bukrs&nbsp;kunnr&nbsp;waers&nbsp;zrelno.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIBE&nbsp;TABLE&nbsp;lt_output&nbsp;LINES&nbsp;lv_lines.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;lv_lines&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;TEXT-e02&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_lines&nbsp;&gt;&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;TEXT-e03&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_get_so_data.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'ZYRK'."获取已认款信息<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt_output&nbsp;=&nbsp;gt_output.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELETE&nbsp;lt_output&nbsp;WHERE&nbsp;box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SORT&nbsp;lt_output&nbsp;BY&nbsp;bukrs&nbsp;kunnr&nbsp;zrelno.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELETE&nbsp;ADJACENT&nbsp;DUPLICATES&nbsp;FROM&nbsp;lt_output&nbsp;COMPARING&nbsp;bukrs&nbsp;kunnr&nbsp;zrelno.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIBE&nbsp;TABLE&nbsp;lt_output&nbsp;LINES&nbsp;lv_lines.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;lv_lines&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;TEXT-e02&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_lines&nbsp;&gt;&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;TEXT-e03&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_get_rkmx_data.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'ZRK'."认款<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt_output&nbsp;=&nbsp;gt_output.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELETE&nbsp;lt_output&nbsp;WHERE&nbsp;box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIBE&nbsp;TABLE&nbsp;lt_output&nbsp;LINES&nbsp;lv_lines.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;lv_lines&nbsp;EQ&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;TEXT-e02&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_gen_rk."生成认款<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'ZRKCH'."认款撤回<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt_output&nbsp;=&nbsp;gt_output.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELETE&nbsp;lt_output&nbsp;WHERE&nbsp;box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIBE&nbsp;TABLE&nbsp;lt_output&nbsp;LINES&nbsp;lv_lines.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;lv_lines&nbsp;EQ&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;TEXT-e02&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_cancle_rk."撤销认款<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;ENDCASE.<br />
+&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alvgrid-&gt;set_frontend_layout<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_layout&nbsp;=&nbsp;gs_layout.<br />
+&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alvgrid_101-&gt;set_frontend_layout<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_layout&nbsp;=&nbsp;gs_layout.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;FRM_HANDLE_DATA_CHANGED<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;响应ALV&nbsp;OO的数据更改事件<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_ER_DATA_CHANGED&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_handle_data_changed USING u_data_changed<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;REF&nbsp;TO&nbsp;cl_alv_changed_data_protocol.<br />
+&nbsp;&nbsp;DATA:&nbsp;lwa_mod_cell&nbsp;TYPE&nbsp;lvc_s_modi.<br />
+&nbsp;&nbsp;SORT&nbsp;u_data_changed-&gt;mt_mod_cells&nbsp;BY&nbsp;row_id.<br />
+&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;u_data_changed-&gt;mt_mod_cells&nbsp;INTO&nbsp;lwa_mod_cell.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_output&nbsp;INTO&nbsp;gs_output&nbsp;INDEX&nbsp;lwa_mod_cell-row_id.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;gt_output&nbsp;FROM&nbsp;gs_output&nbsp;INDEX&nbsp;lwa_mod_cell-row_id.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;ENDLOOP.<br />
+&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alvgrid-&gt;set_frontend_layout<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_layout&nbsp;=&nbsp;gs_layout.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;FRM_HANDLE_DATA_CHANGED_101<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;响应ALV&nbsp;OO的数据更改事件<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_ER_DATA_CHANGED&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_handle_data_changed_101 USING u_data_changed<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;REF&nbsp;TO&nbsp;cl_alv_changed_data_protocol.<br />
+&nbsp;&nbsp;DATA:&nbsp;lwa_mod_cell&nbsp;TYPE&nbsp;lvc_s_modi.<br />
+&nbsp;&nbsp;DATA:&nbsp;lv_wrbtr&nbsp;TYPE&nbsp;zfit001_rkmx-zwrbtr_rk.<br />
+&nbsp;&nbsp;SORT&nbsp;u_data_changed-&gt;mt_mod_cells&nbsp;BY&nbsp;row_id.<br />
+&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;u_data_changed-&gt;mt_mod_cells&nbsp;INTO&nbsp;lwa_mod_cell.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CASE&nbsp;lwa_mod_cell-fieldname.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'ZWRBTR_RK'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT&nbsp;SINGLE&nbsp;dcpfm<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTO&nbsp;@DATA(lv_dcpfm)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;usr01<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;bname&nbsp;=&nbsp;@sy-uname.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_so&nbsp;INTO&nbsp;gs_so&nbsp;INDEX&nbsp;lwa_mod_cell-row_id.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLEAR:lv_wrbtr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;FUNCTION&nbsp;'UNITS_STRING_CONVERT'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units_string&nbsp;=&nbsp;lwa_mod_cell-value&nbsp;&nbsp;"不能带正负符号<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dcpfm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;lv_dcpfm<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IMPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;lv_wrbtr<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXCEPTIONS<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invalid_type&nbsp;=&nbsp;1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHERS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;2.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;gs_so-zwrbtr_free&nbsp;&lt;&nbsp;lwa_mod_cell-value.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;gs_so-zwrbtr_free&nbsp;&lt;&nbsp;lv_wrbtr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;TEXT-e12&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;gt_so&nbsp;FROM&nbsp;gs_so&nbsp;INDEX&nbsp;lwa_mod_cell-row_id.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDCASE.<br />
+&nbsp;&nbsp;ENDLOOP.<br />
+&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alvgrid_101-&gt;set_frontend_layout<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_layout&nbsp;=&nbsp;gs_layout.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Form&nbsp;&nbsp;FRM_HANDLE_CHANGED_FINISH<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*----------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_E_MODIFIED&nbsp;&nbsp;text<br />
+*----------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_handle_changed_finish  USING  u_modified<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ut_good_cells&nbsp;TYPE&nbsp;&nbsp;lvc_t_modi.<br />
+&nbsp;&nbsp;DATA:lwa_mod_cell&nbsp;TYPE&nbsp;lvc_s_modi.<br />
+&nbsp;&nbsp;SORT&nbsp;ut_good_cells&nbsp;BY&nbsp;row_id.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;ut_good_cells&nbsp;INTO&nbsp;lwa_mod_cell&nbsp;WHERE&nbsp;fieldname&nbsp;=&nbsp;''.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;CASE&nbsp;lwa_mod_cell-fieldname.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'ZHKONT_YH'.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_output&nbsp;ASSIGNING&nbsp;FIELD-SYMBOL(&lt;fs_output&gt;)&nbsp;INDEX&nbsp;lwa_mod_cell-row_id.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;=&nbsp;0.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT&nbsp;SINGLE&nbsp;txt20&nbsp;INTO&nbsp;&lt;fs_output&gt;-txt20_yh&nbsp;FROM&nbsp;skat<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;spras&nbsp;EQ&nbsp;sy-langu<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;ktopl&nbsp;EQ&nbsp;'YYTX'<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;saknr&nbsp;=&nbsp;&lt;fs_output&gt;-zhkont_yh.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;ENDCASE.<br />
+<br />
+*&nbsp;&nbsp;ENDLOOP.<br />
+*&nbsp;&nbsp;call&nbsp;method&nbsp;cl_gui_cfw=&gt;set_new_ok_code<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;exporting<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_code&nbsp;=&nbsp;'UPDS'.<br />
+   </div>
+   <div class="code">
+ENDFORM.                    " FRM_HANDLE_CHANGED_FINISH<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Form&nbsp;&nbsp;FRM_HANDLE_CHANGED_FINISH<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*----------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_E_MODIFIED&nbsp;&nbsp;text<br />
+*----------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_handle_changed_finish_101  USING  u_modified<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ut_good_cells&nbsp;TYPE&nbsp;&nbsp;lvc_t_modi.<br />
+&nbsp;&nbsp;DATA:lwa_mod_cell&nbsp;TYPE&nbsp;lvc_s_modi.<br />
+&nbsp;&nbsp;SORT&nbsp;ut_good_cells&nbsp;BY&nbsp;row_id.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;ut_good_cells&nbsp;INTO&nbsp;lwa_mod_cell&nbsp;WHERE&nbsp;fieldname&nbsp;=&nbsp;''.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;CASE&nbsp;lwa_mod_cell-fieldname.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'ZHKONT_YH'.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_output&nbsp;ASSIGNING&nbsp;FIELD-SYMBOL(&lt;fs_output&gt;)&nbsp;INDEX&nbsp;lwa_mod_cell-row_id.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;=&nbsp;0.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT&nbsp;SINGLE&nbsp;txt20&nbsp;INTO&nbsp;&lt;fs_output&gt;-txt20_yh&nbsp;FROM&nbsp;skat<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;spras&nbsp;EQ&nbsp;sy-langu<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;ktopl&nbsp;EQ&nbsp;'YYTX'<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;saknr&nbsp;=&nbsp;&lt;fs_output&gt;-zhkont_yh.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;ENDCASE.<br />
+<br />
+*&nbsp;&nbsp;ENDLOOP.<br />
+*&nbsp;&nbsp;call&nbsp;method&nbsp;cl_gui_cfw=&gt;set_new_ok_code<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;exporting<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_code&nbsp;=&nbsp;'UPDS'.<br />
+   </div>
+   <div class="code">
+ENDFORM.                    " FRM_HANDLE_CHANGED_FINISH<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;FRM_HANDLE_HOTSPOT_CLICK<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;响应ALV&nbsp;OO的双击事件<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_E_ROW_ID&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_E_COLUMN_ID&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_ES_ROW_NO&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_handle_hotspot_click USING u_row_id TYPE lvc_s_row<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_column_id&nbsp;TYPE&nbsp;lvc_s_col<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_row_no&nbsp;TYPE&nbsp;lvc_s_roid.<br />
+&nbsp;&nbsp;DATA:gv_answer&nbsp;TYPE&nbsp;c.<br />
+&nbsp;&nbsp;DATA:&nbsp;it_seltab&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;rsparams,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iw_seltab&nbsp;LIKE&nbsp;LINE&nbsp;OF&nbsp;it_seltab.<br />
+<br />
+&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_output&nbsp;ASSIGNING&nbsp;FIELD-SYMBOL(&lt;fs_output&gt;)&nbsp;INDEX&nbsp;u_row_no-row_id.<br />
+&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CASE&nbsp;u_column_id-fieldname.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'BOX'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"选择或者取消选择时,将销售订单认款信息情空<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLEAR:&nbsp;gt_so.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;&lt;fs_output&gt;-zrkzt&nbsp;=&nbsp;'1'&nbsp;AND&nbsp;&lt;fs_output&gt;-zrelno&nbsp;IS&nbsp;INITIAL.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"未认款的根据交易流水号勾选<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_output&nbsp;ASSIGNING&nbsp;&lt;fs_output&gt;&nbsp;WHERE&nbsp;dtlseq&nbsp;=&nbsp;&lt;fs_output&gt;-dtlseq.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;&lt;fs_output&gt;-box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fs_output&gt;-box&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fs_output&gt;-box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"已认款的或部分认款的根据认款流水号相同的统一勾选<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_output&nbsp;ASSIGNING&nbsp;&lt;fs_output&gt;&nbsp;WHERE&nbsp;zrelno&nbsp;=&nbsp;&lt;fs_output&gt;-zrelno.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;&lt;fs_output&gt;-box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fs_output&gt;-box&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fs_output&gt;-box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'BELNR'."穿透查看会计凭证明细<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHECK&nbsp;&lt;fs_output&gt;-belnr&nbsp;IS&nbsp;NOT&nbsp;INITIAL<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;&lt;fs_output&gt;-gjahr&nbsp;IS&nbsp;NOT&nbsp;INITIAL<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;&lt;fs_output&gt;-bukrs&nbsp;IS&nbsp;NOT&nbsp;INITIAL.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;PARAMETER&nbsp;ID&nbsp;'BLN'&nbsp;FIELD&nbsp;&lt;fs_output&gt;-belnr.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;PARAMETER&nbsp;ID&nbsp;'GJR'&nbsp;FIELD&nbsp;&lt;fs_output&gt;-gjahr.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;PARAMETER&nbsp;ID&nbsp;'BUK'&nbsp;FIELD&nbsp;&lt;fs_output&gt;-bukrs.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;TRANSACTION&nbsp;'FB03'&nbsp;AND&nbsp;SKIP&nbsp;FIRST&nbsp;SCREEN.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;ENDCASE.<br />
+&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alvgrid-&gt;set_frontend_layout<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_layout&nbsp;=&nbsp;gs_layout.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;FRM_HANDLE_HOTSPOT_CLICK_101<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;响应ALV&nbsp;OO的双击事件<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_E_ROW_ID&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_E_COLUMN_ID&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_ES_ROW_NO&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_handle_hotspot_click_101 USING u_row_id TYPE lvc_s_row<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_column_id&nbsp;TYPE&nbsp;lvc_s_col<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_row_no&nbsp;TYPE&nbsp;lvc_s_roid.<br />
+&nbsp;&nbsp;DATA:gv_answer&nbsp;TYPE&nbsp;c.<br />
+&nbsp;&nbsp;DATA:&nbsp;it_seltab&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;rsparams,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iw_seltab&nbsp;LIKE&nbsp;LINE&nbsp;OF&nbsp;it_seltab.<br />
+<br />
+&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_so&nbsp;ASSIGNING&nbsp;FIELD-SYMBOL(&lt;fs_so&gt;)&nbsp;INDEX&nbsp;u_row_no-row_id.<br />
+&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CASE&nbsp;u_column_id-fieldname.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'BOX'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_so&nbsp;ASSIGNING&nbsp;&lt;fs_so&gt;&nbsp;WHERE&nbsp;belnr&nbsp;=&nbsp;&lt;fs_so&gt;-belnr<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;gjahr&nbsp;=&nbsp;&lt;fs_so&gt;-gjahr<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;buzei&nbsp;=&nbsp;&lt;fs_so&gt;-buzei<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;zitno&nbsp;=&nbsp;&lt;fs_so&gt;-zitno.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;&lt;fs_so&gt;-box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fs_so&gt;-box&nbsp;=&nbsp;'X'.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;&lt;fs_so&gt;-style&nbsp;IS&nbsp;INITIAL&nbsp;AND&nbsp;&lt;fs_so&gt;-zwrbtr_rk&nbsp;IS&nbsp;INITIAL.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;&lt;fs_so&gt;-zrelno&nbsp;IS&nbsp;INITIAL&nbsp;AND&nbsp;&lt;fs_so&gt;-zwrbtr_rk&nbsp;IS&nbsp;INITIAL.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fs_so&gt;-zwrbtr_rk&nbsp;=&nbsp;&lt;fs_so&gt;-zwrbtr_free.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fs_so&gt;-box&nbsp;=&nbsp;''.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDCASE.<br />
+&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alvgrid_101-&gt;set_frontend_layout<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_layout&nbsp;=&nbsp;gs_layout.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;FRM_PREPARE_FIELD_CATALOG<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;&nbsp;P_<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_prepare_field_catalog USING u_flag.<br />
+&nbsp;&nbsp;CLEAR:gt_fieldcat,gs_fieldcat.<br />
+&nbsp;&nbsp;CASE&nbsp;u_flag.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'100'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'BOX'&nbsp;TEXT-l01&nbsp;'X'&nbsp;'X'&nbsp;'X'&nbsp;'X'&nbsp;''&nbsp;''."选择框<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'WAERS'&nbsp;TEXT-l02&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'WAERS'&nbsp;'ZFIT001_REC'."币种<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'BUDAT'&nbsp;TEXT-l03&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'BUDAT'&nbsp;'ZFIT001_REC'."凭证日期<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'BUKRS'&nbsp;TEXT-l04&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'BUKRS'&nbsp;'ZFIT001_REC'."公司代码<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'BUTXT'&nbsp;TEXT-l05&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'BUTXT'&nbsp;'T001'."公司代码名称<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'KUNNR'&nbsp;TEXT-l06&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'KUNNR'&nbsp;'ZFIT001_REC'."客户编码<br />
+   </div>
+   <div class="codeComment">
+**&nbsp;C002&nbsp;Start&nbsp;of&nbsp;insert&nbsp;by&nbsp;edonne&nbsp;for&nbsp;客户&销售助理对应表&nbsp;on&nbsp;2021.6.9<br />
+**&nbsp;客户名称&nbsp;NAME1+NAME2&nbsp;&nbsp;=&nbsp;80<br />
+*/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'NAME1'&nbsp;TEXT-l07&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'NAME1'&nbsp;'KNA1'."客户名称<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'NAME1'&nbsp;TEXT-l07&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'CUSTOMERNAME'&nbsp;'BPADDCUST_D'."客户名称<br />
+   </div>
+   <div class="codeComment">
+**&nbsp;C002&nbsp;End&nbsp;of&nbsp;insert&nbsp;by&nbsp;edonne&nbsp;for&nbsp;客户&销售助理对应表&nbsp;on&nbsp;2021.6.9<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'WRBTR'&nbsp;TEXT-l08&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'WRBTR'&nbsp;'ZFIT001_REC'."金额<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'ZRKZT'&nbsp;TEXT-l09&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'ZRKZT'&nbsp;'ZFIT001_REC'."认款状态<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'ZRELNO'&nbsp;TEXT-l10&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'ZRELNO'&nbsp;'ZFIT001_RKMX'."认款关联流水号<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat&nbsp;USING&nbsp;'EXTTX2'&nbsp;TEXT-l11&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'EXTTX2'&nbsp;'ZFIT001_RKMX'."备注<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'101'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'BOX'&nbsp;TEXT-l01&nbsp;'X'&nbsp;'X'&nbsp;'X'&nbsp;'X'&nbsp;''&nbsp;''."选择框<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'KUNNR'&nbsp;TEXT-l06&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'KUNNR'&nbsp;'VBAK'."客户编码<br />
+   </div>
+   <div class="codeComment">
+**&nbsp;C002&nbsp;Start&nbsp;of&nbsp;insert&nbsp;by&nbsp;edonne&nbsp;for&nbsp;客户&销售助理对应表&nbsp;on&nbsp;2021.6.9<br />
+**&nbsp;客户名称&nbsp;NAME1+NAME2&nbsp;&nbsp;=&nbsp;80<br />
+*\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'NAME1'&nbsp;TEXT-l07&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'NAME1'&nbsp;'KNA1'."客户名称<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'NAME1'&nbsp;TEXT-l07&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'CUSTOMERNAME'&nbsp;'BPADDCUST_D'."客户名称<br />
+   </div>
+   <div class="codeComment">
+**&nbsp;C002&nbsp;End&nbsp;of&nbsp;insert&nbsp;by&nbsp;edonne&nbsp;for&nbsp;客户&销售助理对应表&nbsp;on&nbsp;2021.6.9<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'BELNR'&nbsp;TEXT-l12&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'BELNR'&nbsp;'ZFIT001_RKMX'."未清会计凭证<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'GJAHR'&nbsp;TEXT-l13&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'GJAHR'&nbsp;'ZFIT001_RKMX'."会计年度<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'BUZEI'&nbsp;TEXT-l14&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'BUZEI'&nbsp;'ZFIT001_RKMX'."凭证行项目<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'KUNWE'&nbsp;TEXT-l15&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'KUNWE'&nbsp;'ZFIT001_RKMX'."终端客户<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'NAME1_WE'&nbsp;TEXT-l16&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'NAME1'&nbsp;'KNA1'."终端客户名称<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'ZWRBTR_FREE'&nbsp;TEXT-l21&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'ZWRBTR_RK'&nbsp;'ZFIT001_RKMX'."可认款金额<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'ZWRBTR_RK'&nbsp;TEXT-l17&nbsp;'X'&nbsp;''&nbsp;''&nbsp;''&nbsp;'ZWRBTR_RK'&nbsp;'ZFIT001_RKMX'."认款金额<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'ZWRBTR_HW'&nbsp;TEXT-l18&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'ZWRBTR_HW'&nbsp;'ZFIT001_RKMX'."货物金额<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'ZWRBTR_YF'&nbsp;TEXT-l19&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'ZWRBTR_YF'&nbsp;'ZFIT001_RKMX'."运费金额<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'ZWRBTR'&nbsp;TEXT-l20&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'ZWRBTR'&nbsp;'ZFIT001_RKMX'."会计凭证总金额<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'ZZRKZT'&nbsp;TEXT-l22&nbsp;''&nbsp;'X'&nbsp;''&nbsp;''&nbsp;''&nbsp;''."销售订单认款状态<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;frm_add_fcate&nbsp;TABLES&nbsp;gt_fieldcat_101&nbsp;USING&nbsp;'ZRELNO'&nbsp;TEXT-l10&nbsp;''&nbsp;''&nbsp;''&nbsp;''&nbsp;'ZRELNO'&nbsp;'ZFIT001_RKMX'."认款关联流水号<br />
+&nbsp;&nbsp;ENDCASE.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;FRM_PREPARE_LAYOUT<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;设置ALV&nbsp;OO的&nbsp;LAYOUT&nbsp;格局<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_prepare_layout .<br />
+&nbsp;&nbsp;gs_layout-zebra&nbsp;=&nbsp;'X'&nbsp;.<br />
+&nbsp;&nbsp;gs_layout-cwidth_opt&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;gs_layout-stylefname&nbsp;=&nbsp;'STYLE'.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Form&nbsp;&nbsp;FRM_EXCLUDE_TB_FUNCTIONS<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*----------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--P_LT_EXCLUDE&nbsp;&nbsp;text<br />
+*----------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_exclude_tb_functions CHANGING c_exclude TYPE ui_functions.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;Only&nbsp;allow&nbsp;to&nbsp;change&nbsp;data&nbsp;not&nbsp;to&nbsp;create&nbsp;new&nbsp;entries&nbsp;(exclude<br />
+*&nbsp;generic&nbsp;functions).<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;DATA&nbsp;ls_exclude&nbsp;TYPE&nbsp;ui_func.<br />
+&nbsp;&nbsp;CLEAR:c_exclude[].<br />
+&nbsp;&nbsp;ls_exclude&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_fc_loc_copy_row.<br />
+&nbsp;&nbsp;APPEND&nbsp;ls_exclude&nbsp;TO&nbsp;c_exclude.<br />
+&nbsp;&nbsp;ls_exclude&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_fc_loc_delete_row.<br />
+&nbsp;&nbsp;APPEND&nbsp;ls_exclude&nbsp;TO&nbsp;c_exclude.<br />
+&nbsp;&nbsp;ls_exclude&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_fc_loc_append_row.<br />
+&nbsp;&nbsp;APPEND&nbsp;ls_exclude&nbsp;TO&nbsp;c_exclude.<br />
+&nbsp;&nbsp;ls_exclude&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_fc_loc_insert_row.<br />
+&nbsp;&nbsp;APPEND&nbsp;ls_exclude&nbsp;TO&nbsp;c_exclude.<br />
+&nbsp;&nbsp;ls_exclude&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_fc_loc_move_row.<br />
+&nbsp;&nbsp;APPEND&nbsp;ls_exclude&nbsp;TO&nbsp;c_exclude.<br />
+&nbsp;&nbsp;ls_exclude&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_fc_loc_copy.<br />
+&nbsp;&nbsp;APPEND&nbsp;ls_exclude&nbsp;TO&nbsp;c_exclude.<br />
+&nbsp;&nbsp;ls_exclude&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_fc_loc_cut.<br />
+&nbsp;&nbsp;APPEND&nbsp;ls_exclude&nbsp;TO&nbsp;c_exclude.<br />
+&nbsp;&nbsp;ls_exclude&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_fc_loc_paste.<br />
+&nbsp;&nbsp;APPEND&nbsp;ls_exclude&nbsp;TO&nbsp;c_exclude.<br />
+&nbsp;&nbsp;ls_exclude&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_fc_loc_paste_new_row.<br />
+&nbsp;&nbsp;APPEND&nbsp;ls_exclude&nbsp;TO&nbsp;c_exclude.<br />
+&nbsp;&nbsp;ls_exclude&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_fc_loc_undo.<br />
+&nbsp;&nbsp;APPEND&nbsp;ls_exclude&nbsp;TO&nbsp;c_exclude.<br />
+ENDFORM.                    " EXCLUDE_TB_FUNCTIONS<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;FRM_DISPLAY_ALV<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;显示ALV<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_GT_ZSDT021&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_display_alv TABLES t_table USING u_flag.<br />
+<br />
+&nbsp;&nbsp;CLEAR:gs_var.<br />
+&nbsp;&nbsp;gs_var-report&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;sy-repid.<br />
+&nbsp;&nbsp;gs_var-handle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;u_flag.<br />
+&nbsp;&nbsp;CASE&nbsp;u_flag.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'100'.&nbsp;"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alvgrid-&gt;set_table_for_first_display<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I_BUFFER_ACTIVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I_CONSISTENCY_CHECK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I_STRUCTURE_NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_variant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gs_var<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i_save&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'U'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i_default&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'X'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_layout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gs_layout<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IS_PRINT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IT_SPECIAL_GROUPS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_toolbar_excluding&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gt_exclude<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IT_HYPERLINK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHANGING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_outtab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;t_table[]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_fieldcatalog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gt_fieldcat<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IT_SORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_filter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXCEPTIONS<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invalid_parameter_combination&nbsp;=&nbsp;1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;program_error&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;too_many_lines&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;3<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHERS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;4.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;&lt;&gt;&nbsp;0.<br />
+   </div>
+   <div class="codeComment">
+*--Exception&nbsp;handling<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'101'.&nbsp;"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alvgrid_101-&gt;set_table_for_first_display<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I_BUFFER_ACTIVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I_CONSISTENCY_CHECK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I_STRUCTURE_NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_variant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gs_var<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i_save&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'U'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i_default&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'X'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_layout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gs_layout<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IS_PRINT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IT_SPECIAL_GROUPS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_toolbar_excluding&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gt_exclude<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IT_HYPERLINK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHANGING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_outtab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;t_table[]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_fieldcatalog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gt_fieldcat_101<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IT_SORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_filter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXCEPTIONS<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invalid_parameter_combination&nbsp;=&nbsp;1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;program_error&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;too_many_lines&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;3<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHERS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;4.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;&lt;&gt;&nbsp;0.<br />
+   </div>
+   <div class="codeComment">
+*--Exception&nbsp;handling<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;ENDCASE.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Form&nbsp;&nbsp;FRM_ADD_FCATE<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*----------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_2226&nbsp;&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_2227&nbsp;&nbsp;&nbsp;text<br />
+*----------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM frm_add_fcate TABLES pt_fieldcat  USING    u_fieldname<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_reptext<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_edit<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_checkbox<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_fix_column<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_hotspot<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_ref_field<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u_ref_table.<br />
+<br />
+&nbsp;&nbsp;gs_fieldcat-fieldname&nbsp;=&nbsp;u_fieldname.<br />
+<br />
+&nbsp;&nbsp;gs_fieldcat-scrtext_s&nbsp;=<br />
+&nbsp;&nbsp;gs_fieldcat-scrtext_m&nbsp;=<br />
+&nbsp;&nbsp;gs_fieldcat-scrtext_l&nbsp;=<br />
+&nbsp;&nbsp;gs_fieldcat-coltext&nbsp;=<br />
+&nbsp;&nbsp;gs_fieldcat-reptext&nbsp;=&nbsp;u_reptext.<br />
+&nbsp;&nbsp;gs_fieldcat-edit&nbsp;=&nbsp;u_edit.<br />
+&nbsp;&nbsp;gs_fieldcat-checkbox&nbsp;=&nbsp;u_checkbox.<br />
+&nbsp;&nbsp;gs_fieldcat-fix_column&nbsp;=&nbsp;u_fix_column.<br />
+&nbsp;&nbsp;gs_fieldcat-hotspot&nbsp;=&nbsp;u_hotspot.<br />
+&nbsp;&nbsp;gs_fieldcat-ref_field&nbsp;=&nbsp;u_ref_field.<br />
+&nbsp;&nbsp;gs_fieldcat-ref_table&nbsp;=&nbsp;u_ref_table.<br />
+&nbsp;&nbsp;CASE&nbsp;u_fieldname.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'KUNNR'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_fieldcat-convexit&nbsp;=&nbsp;'ALPHA'.<br />
+&nbsp;&nbsp;ENDCASE.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fieldcat&nbsp;TO&nbsp;pt_fieldcat.<br />
+&nbsp;&nbsp;CLEAR:&nbsp;gs_fieldcat.<br />
+<br />
+ENDFORM.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.2 - E.G.Mellodew. 1998-2021. Sap Release 754</td>
+   </tr>
+</table>
+</body>
+</html>

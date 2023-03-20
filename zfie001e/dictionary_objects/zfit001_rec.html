@@ -1,0 +1,1257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=gb2312" />
+<title>Dictionary object- ZFIT001_REC</title>
+<style type="text/css">
+  th{text-align:left}
+  .cell{
+     font-family:"Courier New", Courier, monospace;
+     color:#000;
+     font-size:12px;
+     background-color:#F2F4F7;
+  }
+  .cell td { border: thin solid #ccc; }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+  <table class="outerTable">
+    <tr>
+      <td><h2>Table: ZFIT001_REC</h2>
+  <h3>Description: 收款</h3></td>
+    </tr>
+    <tr>
+      <td><!--This is where our main table begins  -->
+<table class="innerTable">
+<tr>
+  <th>Row</th>
+  <th>Field name</th>
+  <th>Position</th>
+  <th>Key</th>
+  <th>Data element</th>
+  <th>Domain</th>
+  <th>Datatype</th>
+  <th>Length</th>
+  <th>Lowercase</th>
+  <th>Domain text</th>
+</tr>
+<tr class="cell">
+  <td> 1</td>
+  <td>MANDT</td>
+  <td>1</td>
+  <td>X</td>
+  <td>MANDT</td>
+  <td>MANDT</td>
+  <td>CLNT</td>
+  <td>3</td>
+  <td>&nbsp;</td>
+  <td>集团</td>
+</tr>
+<tr class="cell">
+  <td> 2</td>
+  <td>DTLSEQ</td>
+  <td>2</td>
+  <td>X</td>
+  <td>ZEDTLSEQ</td>
+  <td>CHAR32</td>
+  <td>CHAR</td>
+  <td>32</td>
+  <td>&nbsp;</td>
+  <td>交易流水号</td>
+</tr>
+<tr class="cell">
+  <td> 3</td>
+  <td>ZDJLX</td>
+  <td>3</td>
+  <td>&nbsp;</td>
+  <td>ZEDJLX</td>
+  <td>ZDDJLX</td>
+  <td>CHAR</td>
+  <td>2</td>
+  <td>&nbsp;</td>
+  <td>单据类型</td>
+</tr>
+<tr class="cell">
+  <td> 4</td>
+  <td>ACTNBR</td>
+  <td>4</td>
+  <td>&nbsp;</td>
+  <td>ZEACTNBR</td>
+  <td>CHAR35</td>
+  <td>CHAR</td>
+  <td>35</td>
+  <td>&nbsp;</td>
+  <td>交易账号</td>
+</tr>
+<tr class="cell">
+  <td> 5</td>
+  <td>BANKN</td>
+  <td>5</td>
+  <td>&nbsp;</td>
+  <td>BU_BANKN</td>
+  <td>CHAR18</td>
+  <td>CHAR</td>
+  <td>18</td>
+  <td>&nbsp;</td>
+  <td>银行账号</td>
+</tr>
+<tr class="cell">
+  <td> 6</td>
+  <td>REFZL</td>
+  <td>6</td>
+  <td>&nbsp;</td>
+  <td>REFZL</td>
+  <td>CHAR27</td>
+  <td>CHAR</td>
+  <td>27</td>
+  <td>&nbsp;</td>
+  <td>参考信息</td>
+</tr>
+<tr class="cell">
+  <td> 7</td>
+  <td>OTHACT</td>
+  <td>7</td>
+  <td>&nbsp;</td>
+  <td>ZEOTHACT</td>
+  <td>CHAR35</td>
+  <td>CHAR</td>
+  <td>35</td>
+  <td>&nbsp;</td>
+  <td>对方账号</td>
+</tr>
+<tr class="cell">
+  <td> 8</td>
+  <td>OTHNAM</td>
+  <td>8</td>
+  <td>&nbsp;</td>
+  <td>ZEOTHNAM</td>
+  <td>ZDOTHNAM</td>
+  <td>CHAR</td>
+  <td>200</td>
+  <td>X</td>
+  <td>对方户名</td>
+</tr>
+<tr class="cell">
+  <td> 9</td>
+  <td>BANKN_OTH</td>
+  <td>9</td>
+  <td>&nbsp;</td>
+  <td>ZEBANKN_OTH</td>
+  <td>CHAR18</td>
+  <td>CHAR</td>
+  <td>18</td>
+  <td>&nbsp;</td>
+  <td>对方账号</td>
+</tr>
+<tr class="cell">
+  <td>10</td>
+  <td>REFZL_OTH</td>
+  <td>10</td>
+  <td>&nbsp;</td>
+  <td>ZEREFZL_OTH</td>
+  <td>CHAR27</td>
+  <td>CHAR</td>
+  <td>27</td>
+  <td>&nbsp;</td>
+  <td>对方账号参考信息</td>
+</tr>
+<tr class="cell">
+  <td>11</td>
+  <td>BUDAT</td>
+  <td>11</td>
+  <td>&nbsp;</td>
+  <td>BUDAT</td>
+  <td>DATUM</td>
+  <td>DATS</td>
+  <td>8</td>
+  <td>&nbsp;</td>
+  <td>凭证中的过账日期</td>
+</tr>
+<tr class="cell">
+  <td>12</td>
+  <td>BLART</td>
+  <td>12</td>
+  <td>&nbsp;</td>
+  <td>BLART</td>
+  <td>BLART</td>
+  <td>CHAR</td>
+  <td>2</td>
+  <td>&nbsp;</td>
+  <td>凭证类型</td>
+</tr>
+<tr class="cell">
+  <td>13</td>
+  <td>BUKRS</td>
+  <td>13</td>
+  <td>&nbsp;</td>
+  <td>BUKRS</td>
+  <td>BUKRS</td>
+  <td>CHAR</td>
+  <td>4</td>
+  <td>&nbsp;</td>
+  <td>公司代码</td>
+</tr>
+<tr class="cell">
+  <td>14</td>
+  <td>WAERS</td>
+  <td>14</td>
+  <td>&nbsp;</td>
+  <td>WAERS</td>
+  <td>WAERS</td>
+  <td>CUKY</td>
+  <td>5</td>
+  <td>&nbsp;</td>
+  <td>货币码</td>
+</tr>
+<tr class="cell">
+  <td>15</td>
+  <td>BKTXT</td>
+  <td>15</td>
+  <td>&nbsp;</td>
+  <td>BKTXT</td>
+  <td>TEXT25</td>
+  <td>CHAR</td>
+  <td>25</td>
+  <td>X</td>
+  <td>凭证抬头文本</td>
+</tr>
+<tr class="cell">
+  <td>16</td>
+  <td>BSCHL</td>
+  <td>16</td>
+  <td>&nbsp;</td>
+  <td>BSCHL</td>
+  <td>BSCHL</td>
+  <td>CHAR</td>
+  <td>2</td>
+  <td>&nbsp;</td>
+  <td>过账码</td>
+</tr>
+<tr class="cell">
+  <td>17</td>
+  <td>KTOKD</td>
+  <td>17</td>
+  <td>&nbsp;</td>
+  <td>KTOKD</td>
+  <td>KTOKD</td>
+  <td>CHAR</td>
+  <td>4</td>
+  <td>&nbsp;</td>
+  <td>客户帐户组</td>
+</tr>
+<tr class="cell">
+  <td>18</td>
+  <td>KUNNR</td>
+  <td>18</td>
+  <td>&nbsp;</td>
+  <td>KUNNR</td>
+  <td>KUNNR</td>
+  <td>CHAR</td>
+  <td>10</td>
+  <td>&nbsp;</td>
+  <td>客户编号</td>
+</tr>
+<tr class="cell">
+  <td>19</td>
+  <td>UMSKZ</td>
+  <td>19</td>
+  <td>&nbsp;</td>
+  <td>UMSKZ</td>
+  <td>UMSKZ</td>
+  <td>CHAR</td>
+  <td>1</td>
+  <td>&nbsp;</td>
+  <td>特别总账标识</td>
+</tr>
+<tr class="cell">
+  <td>20</td>
+  <td>ZHKONT_KF</td>
+  <td>20</td>
+  <td>&nbsp;</td>
+  <td>ZEHKONT_KF</td>
+  <td>SAKNR</td>
+  <td>CHAR</td>
+  <td>10</td>
+  <td>&nbsp;</td>
+  <td>客户会计科目</td>
+</tr>
+<tr class="cell">
+  <td>21</td>
+  <td>ZHKONT_YH</td>
+  <td>21</td>
+  <td>&nbsp;</td>
+  <td>ZEHKONT_YH</td>
+  <td>SAKNR</td>
+  <td>CHAR</td>
+  <td>10</td>
+  <td>&nbsp;</td>
+  <td>银行会计科目</td>
+</tr>
+<tr class="cell">
+  <td>22</td>
+  <td>KOSTL</td>
+  <td>22</td>
+  <td>&nbsp;</td>
+  <td>KOSTL</td>
+  <td>KOSTL</td>
+  <td>CHAR</td>
+  <td>10</td>
+  <td>&nbsp;</td>
+  <td>成本中心</td>
+</tr>
+<tr class="cell">
+  <td>23</td>
+  <td>AUFNR</td>
+  <td>23</td>
+  <td>&nbsp;</td>
+  <td>AUFNR</td>
+  <td>AUFNR</td>
+  <td>CHAR</td>
+  <td>12</td>
+  <td>&nbsp;</td>
+  <td>订单号</td>
+</tr>
+<tr class="cell">
+  <td>24</td>
+  <td>HBKID</td>
+  <td>24</td>
+  <td>&nbsp;</td>
+  <td>HBKID</td>
+  <td>HBKID</td>
+  <td>CHAR</td>
+  <td>5</td>
+  <td>&nbsp;</td>
+  <td>开户行短代码</td>
+</tr>
+<tr class="cell">
+  <td>25</td>
+  <td>HKTID</td>
+  <td>25</td>
+  <td>&nbsp;</td>
+  <td>HKTID</td>
+  <td>HKTID</td>
+  <td>CHAR</td>
+  <td>5</td>
+  <td>&nbsp;</td>
+  <td>帐户细目的代码</td>
+</tr>
+<tr class="cell">
+  <td>26</td>
+  <td>XNEGP</td>
+  <td>26</td>
+  <td>&nbsp;</td>
+  <td>XNEGP</td>
+  <td>XFELD</td>
+  <td>CHAR</td>
+  <td>1</td>
+  <td>&nbsp;</td>
+  <td>标识：负过账</td>
+</tr>
+<tr class="cell">
+  <td>27</td>
+  <td>WRBTR</td>
+  <td>27</td>
+  <td>&nbsp;</td>
+  <td>WRBTR</td>
+  <td>AFLE13D2O16N_TO_23D2O30N</td>
+  <td>CURR</td>
+  <td>23</td>
+  <td>&nbsp;</td>
+  <td>凭证货币金额</td>
+</tr>
+<tr class="cell">
+  <td>28</td>
+  <td>RSTGR</td>
+  <td>28</td>
+  <td>&nbsp;</td>
+  <td>RSTGR</td>
+  <td>RSTGR</td>
+  <td>CHAR</td>
+  <td>3</td>
+  <td>&nbsp;</td>
+  <td>付款原因代码</td>
+</tr>
+<tr class="cell">
+  <td>29</td>
+  <td>SGTXT</td>
+  <td>29</td>
+  <td>&nbsp;</td>
+  <td>SGTXT</td>
+  <td>TEXT50</td>
+  <td>CHAR</td>
+  <td>50</td>
+  <td>X</td>
+  <td>项目文本</td>
+</tr>
+<tr class="cell">
+  <td>30</td>
+  <td>EXTTX2</td>
+  <td>30</td>
+  <td>&nbsp;</td>
+  <td>ZEEXTTX2</td>
+  <td>TEXT254</td>
+  <td>CHAR</td>
+  <td>254</td>
+  <td>X</td>
+  <td>备注</td>
+</tr>
+<tr class="cell">
+  <td>31</td>
+  <td>NUSAGE</td>
+  <td>31</td>
+  <td>&nbsp;</td>
+  <td>ZENUSAGE</td>
+  <td>CHAR150</td>
+  <td>CHAR</td>
+  <td>150</td>
+  <td>&nbsp;</td>
+  <td>用途</td>
+</tr>
+<tr class="cell">
+  <td>32</td>
+  <td>REFCOD</td>
+  <td>32</td>
+  <td>&nbsp;</td>
+  <td>ZEREFCOD</td>
+  <td>ZDREFCOD</td>
+  <td>CHAR</td>
+  <td>30</td>
+  <td>X</td>
+  <td>业务参考号</td>
+</tr>
+<tr class="cell">
+  <td>33</td>
+  <td>BELNR</td>
+  <td>33</td>
+  <td>&nbsp;</td>
+  <td>BELNR_D</td>
+  <td>BELNR</td>
+  <td>CHAR</td>
+  <td>10</td>
+  <td>&nbsp;</td>
+  <td>会计凭证号码</td>
+</tr>
+<tr class="cell">
+  <td>34</td>
+  <td>GJAHR</td>
+  <td>34</td>
+  <td>&nbsp;</td>
+  <td>GJAHR</td>
+  <td>GJAHR</td>
+  <td>NUMC</td>
+  <td>4</td>
+  <td>&nbsp;</td>
+  <td>会计年度</td>
+</tr>
+<tr class="cell">
+  <td>35</td>
+  <td>ZTRAN</td>
+  <td>35</td>
+  <td>&nbsp;</td>
+  <td>ZETRAN</td>
+  <td>CHAR1_X</td>
+  <td>CHAR</td>
+  <td>1</td>
+  <td>&nbsp;</td>
+  <td>认款平台已接收</td>
+</tr>
+<tr class="cell">
+  <td>36</td>
+  <td>ZRKZT</td>
+  <td>36</td>
+  <td>&nbsp;</td>
+  <td>ZERKZT</td>
+  <td>ZDRKZT</td>
+  <td>CHAR</td>
+  <td>1</td>
+  <td>&nbsp;</td>
+  <td>认款状态</td>
+</tr>
+<tr class="cell">
+  <td>37</td>
+  <td>BELNR_HX</td>
+  <td>37</td>
+  <td>&nbsp;</td>
+  <td>BELNR_D</td>
+  <td>BELNR</td>
+  <td>CHAR</td>
+  <td>10</td>
+  <td>&nbsp;</td>
+  <td>会计凭证号码</td>
+</tr>
+<tr class="cell">
+  <td>38</td>
+  <td>GJAHR_HX</td>
+  <td>38</td>
+  <td>&nbsp;</td>
+  <td>GJAHR</td>
+  <td>GJAHR</td>
+  <td>NUMC</td>
+  <td>4</td>
+  <td>&nbsp;</td>
+  <td>会计年度</td>
+</tr>
+      </table>
+     </td>
+   </tr>
+<br/>
+  <table class="outerTable">
+    <tr>
+      <td><h2>Fixed Domain Values </h2>
+    </tr>
+    <tr>
+      <td><!--This is where our main table begins  -->
+<table class="innerTable">
+<tr>
+  <th>Domain Name</th>
+  <th>Value Low</th>
+  <th>Value High</th>
+  <th>Text</th>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>CHAR1_X</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>未选择</td>
+</tr>
+<tr class="cell">
+  <td>CHAR1_X</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>已选择</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>CHAR1_X</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>未选择</td>
+</tr>
+<tr class="cell">
+  <td>CHAR1_X</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>已选择</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>1</td>
+  <td>&nbsp;</td>
+  <td>未认款</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>2</td>
+  <td>&nbsp;</td>
+  <td>已认款未核销</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>3</td>
+  <td>&nbsp;</td>
+  <td>已认款核销</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>4</td>
+  <td>&nbsp;</td>
+  <td>部分认款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>CHAR1_X</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>未选择</td>
+</tr>
+<tr class="cell">
+  <td>CHAR1_X</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>已选择</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>1</td>
+  <td>&nbsp;</td>
+  <td>未认款</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>2</td>
+  <td>&nbsp;</td>
+  <td>已认款未核销</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>3</td>
+  <td>&nbsp;</td>
+  <td>已认款核销</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>4</td>
+  <td>&nbsp;</td>
+  <td>部分认款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>SK</td>
+  <td>&nbsp;</td>
+  <td>收款</td>
+</tr>
+<tr class="cell">
+  <td>ZDDJLX</td>
+  <td>PJ</td>
+  <td>&nbsp;</td>
+  <td>票据</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>是</td>
+</tr>
+<tr class="cell">
+  <td>XFELD</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>否</td>
+</tr>
+<tr class="cell">
+  <td>CHAR1_X</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>未选择</td>
+</tr>
+<tr class="cell">
+  <td>CHAR1_X</td>
+  <td>X</td>
+  <td>&nbsp;</td>
+  <td>已选择</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>1</td>
+  <td>&nbsp;</td>
+  <td>未认款</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>2</td>
+  <td>&nbsp;</td>
+  <td>已认款未核销</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>3</td>
+  <td>&nbsp;</td>
+  <td>已认款核销</td>
+</tr>
+<tr class="cell">
+  <td>ZDRKZT</td>
+  <td>4</td>
+  <td>&nbsp;</td>
+  <td>部分认款</td>
+</tr>
+      </table>
+     </td>
+   </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.2 - E.G.Mellodew. 1998-2021. Sap Release 754</td>
+   </tr>
+</table>
+</body>
+</html>

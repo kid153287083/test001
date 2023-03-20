@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=gb2312" />
+<title>ZFIE001E_VAR</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZFIE001E_VAR</h2>
+<h3> Description: Include ZFIE001A_VAR</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;包含&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZFIE001A_VAR<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+TABLES:zfit001_rec.<br />
+TYPES:BEGIN OF gty_output.<br />
+TYPES:box    TYPE c. "选择框<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include&nbsp;structure&nbsp;<a&nbsp;href&nbsp;="zfit001_rec/dictionary-zfit001_rec.html">zfit001_rec</a>.<br />
+TYPES: butxt  TYPE t001-butxt,<br />
+   </div>
+   <div class="codeComment">
+*\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name1&nbsp;&nbsp;TYPE&nbsp;kna1-name1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"C002&nbsp;DEL<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name1&nbsp;&nbsp;TYPE&nbsp;bpaddcust_d-customername,&nbsp;&nbsp;"C002&nbsp;ADD<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zrelno&nbsp;TYPE&nbsp;zfit001_rkmx-zrelno.&nbsp;"认款关联流水号<br />
+TYPES: END OF gty_output.<br />
+<br />
+TYPES:BEGIN OF gty_so,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;box&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;c,&nbsp;"选择框<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zitno&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-zitno,&nbsp;"认款操作流水号<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dtlseq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-dtlseq,&nbsp;"交易号<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vbeln&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;vbak-vbeln,&nbsp;"销售订单<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;belnr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;bsid-belnr,&nbsp;"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gjahr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;bsid-gjahr,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buzei&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;bsid-buzei,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kunnr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;vbak-kunnr,&nbsp;"客户<br />
+   </div>
+   <div class="codeComment">
+*\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;kna1-name1,&nbsp;"客户名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"C002&nbsp;DEL<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;bpaddcust_d-customername,&nbsp;&nbsp;"C002&nbsp;ADD<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vdatu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;vbak-vdatu,&nbsp;"交货日期<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bstkd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;vbkd-bstkd,&nbsp;"对方采购订单<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kunwe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-kunwe,&nbsp;"终端客户<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name1_we&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;kna1-name1,&nbsp;"终端客户名称<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zwrbtr_free&nbsp;TYPE&nbsp;zfit001_rkmx-zwrbtr_rk,&nbsp;"可用来认款的金额<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zwrbtr_rk&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-zwrbtr_rk,&nbsp;"认款金额<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zwrbtr_xd&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-zwrbtr_xd,&nbsp;"信贷调整金额<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zwrbtr_hw&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-zwrbtr_hw,&nbsp;"货物金额<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zwrbtr_yf&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-zwrbtr_yf,&nbsp;"运费金额<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zwrbtr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-zwrbtr,&nbsp;"凭证总金额<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zrelno&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-zrelno,&nbsp;"认款关联流水号<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;waers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-waers,&nbsp;"货币<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zzrkzt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;vbak-zzrkzt,&nbsp;"认款状态<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;lvc_t_styl,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END&nbsp;OF&nbsp;&nbsp;gty_so.<br />
+TYPES:BEGIN OF gty_cy,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;belnr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-belnr,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gjahr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-gjahr,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buzei&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-buzei,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kunnr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;vbak-kunnr,&nbsp;"客户<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zwrbtr_cy&nbsp;TYPE&nbsp;zfit001_rkmx-zwrbtr_rk,&nbsp;"差异金额<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END&nbsp;OF&nbsp;&nbsp;gty_cy.<br />
+TYPES:BEGIN OF gty_cy_cx,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;belnr_fy&nbsp;TYPE&nbsp;zfit001_rkmx-belnr_fy,&nbsp;"费用凭证<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gjahr_fy&nbsp;TYPE&nbsp;zfit001_rkmx-gjahr_fy,&nbsp;"会计年度<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bukrs&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx-bukrs,&nbsp;"公司代码<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message&nbsp;&nbsp;TYPE&nbsp;string,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END&nbsp;OF&nbsp;&nbsp;gty_cy_cx.<br />
+DATA:gt_output TYPE TABLE OF gty_output,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_output&nbsp;TYPE&nbsp;gty_output,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_so&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;gty_so,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_so&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;gty_so,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_update&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;zfit001_rec,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_update&nbsp;TYPE&nbsp;zfit001_rec,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_rkmx&nbsp;&nbsp;&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;zfit001_rkmx,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_rkmx&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_rkmx,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_aut&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;zfit001_aut.<br />
+<br />
+<br />
+DATA:ok_code      TYPE sy-ucomm,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;save_ok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;sy-ucomm,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_title(16)&nbsp;TYPE&nbsp;c.<br />
+RANGES:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gr_rkzt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR&nbsp;zfit001_rec-zrkzt.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*---&nbsp;ALV&nbsp;Grid&nbsp;instance&nbsp;reference<br />
+   </div>
+   <div class="code">
+DATA: go_alvgrid     TYPE REF TO cl_gui_alv_grid,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;go_alvgrid_101&nbsp;TYPE&nbsp;REF&nbsp;TO&nbsp;cl_gui_alv_grid.<br />
+   </div>
+   <div class="codeComment">
+*---&nbsp;Name&nbsp;of&nbsp;the&nbsp;custom&nbsp;control&nbsp;added&nbsp;on&nbsp;the&nbsp;screen<br />
+   </div>
+   <div class="code">
+DATA: cns_custom_control_name TYPE scrfname VALUE 'CC100'.<br />
+DATA: cns_custom_control_name_101 TYPE scrfname VALUE 'CC101'.<br />
+   </div>
+   <div class="codeComment">
+*---&nbsp;Custom&nbsp;container&nbsp;instance&nbsp;reference<br />
+   </div>
+   <div class="code">
+DATA: go_ccontainer TYPE REF TO cl_gui_custom_container.<br />
+DATA: go_ccontainer_101 TYPE REF TO cl_gui_custom_container.<br />
+   </div>
+   <div class="codeComment">
+*---&nbsp;Field&nbsp;catalog&nbsp;table<br />
+   </div>
+   <div class="code">
+DATA: gt_fieldcat     TYPE lvc_t_fcat,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_fieldcat_101&nbsp;TYPE&nbsp;lvc_t_fcat,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_fieldcat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;lvc_s_fcat.<br />
+DATA: gt_exclude TYPE ui_functions.<br />
+   </div>
+   <div class="codeComment">
+*---&nbsp;Layout&nbsp;structure<br />
+   </div>
+   <div class="code">
+DATA gs_layout TYPE lvc_s_layo.<br />
+DATA:gs_var TYPE disvariant.<br />
+DATA:BEGIN OF gs_stbl,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;row&nbsp;TYPE&nbsp;lvc_rowst&nbsp;VALUE&nbsp;'X',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;col&nbsp;TYPE&nbsp;lvc_colst&nbsp;VALUE&nbsp;'X',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END&nbsp;OF&nbsp;gs_stbl.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*---生成会计凭证需用的参数<br />
+   </div>
+   <div class="code">
+DATA: gv_listno TYPE bapiacgl09-itemno_acc,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_ftpost&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;ftpost,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_blntab&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;blntab,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_blntab&nbsp;TYPE&nbsp;blntab,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_fttax&nbsp;&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;fttax.<br />
+DATA:  gs_ftpost TYPE ftpost.<br />
+DEFINE mcr_predoc_fields.<br />
+&nbsp;&nbsp;gs_ftpost-stype&nbsp;=&nbsp;&1.<br />
+&nbsp;&nbsp;gs_ftpost-count&nbsp;=&nbsp;&2.<br />
+&nbsp;&nbsp;gs_ftpost-fnam&nbsp;&nbsp;=&nbsp;&3.<br />
+&nbsp;&nbsp;gs_ftpost-fval&nbsp;&nbsp;=&nbsp;&4.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_ftpost&nbsp;TO&nbsp;&5.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_ftpost.<br />
+END-OF-DEFINITION.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.2 - E.G.Mellodew. 1998-2021. Sap Release 754</td>
+   </tr>
+</table>
+</body>
+</html>
