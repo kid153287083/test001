@@ -1,0 +1,321 @@
+*&---------------------------------------------------------------------*
+*& Report YTEST001
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZPPMRPWRITE.
+TABLES :MARA,MARC.
+TYPES: BEGIN OF TY_ALV,
+    MATNR TYPE MARA-MATNR,
+  END OF TY_ALV.
+
+DATA:LS_ALV TYPE TY_ALV,
+     LT_ALV TYPE TABLE OF TY_ALV,
+     LT_ALV_ERROR TYPE TABLE OF TY_ALV.
+DATA:LV_TIMES TYPE I.
+DATA:  G_TASKNAME(20) TYPE C,                   "task name（同时运行的任务名称必须保持唯一）
+       G_CLASSNAME    TYPE RZLLI_APCL,          "Server Group Name
+       G_APPLSERVER   TYPE RZLLITAB-APPLSERVER, "RFC Serve Group
+       LV_AVAILABLE   TYPE I,
+       LV_TOTAL       TYPE I,
+       LV_JOB         TYPE I.
+DATA:  SND_JOBS      TYPE I,
+       RCV_JOBS      TYPE I,
+       OPEN_TASK_NUM TYPE I,
+       MSG           TYPE CHAR255.
+DATA: GV_MESSAGE TYPE C  LENGTH 200.
+DATA:LT_TAB TYPE TABLE OF TY_ALV.
+DATA:LT_ZMMT029_MODIFY TYPE TABLE OF ZMMT029.
+DATA:G_INPUT TYPE TY_ALV.
+DATA: GV_SENUM TYPE C LENGTH 10.
+
+SELECT-OPTIONS: S_MATNR FOR MARA-MATNR .
+SELECT-OPTIONS: S_MTART FOR MARA-MTART .
+PARAMETERS: P_WERKS TYPE MARC-WERKS DEFAULT '1001' .
+PARAMETERS: P_SYN AS CHECKBOX DEFAULT ' '.
+
+
+START-OF-SELECTION.
+RANGES: R_MATNR FOR MARA-MATNR.
+
+SELECT SINGLE
+    FLAG
+    FROM ZPPT030
+    INTO @DATA(LV_FLAG)
+    WHERE ZPROGRAM = 'ZPPMRPWRITE'.
+IF LV_FLAG = 'X'.
+  MESSAGE '无法同时运行2个程序' TYPE 'E'.
+ENDIF.
+UPDATE ZPPT030 SET FLAG = 'X' WHERE ZPROGRAM = 'ZPPMRPWRITE'.
+COMMIT WORK.
+
+"获取上次数据
+SELECT
+  *
+  FROM
+  ZMDEZ
+  INTO TABLE @DATA(LT_ZMDEZ)
+  WHERE WERKS = @P_WERKS.
+
+"写入历史数据表
+IF LT_ZMDEZ IS NOT INITIAL .
+  DELETE FROM ZMDEZ_LOG   WHERE WERKS = @P_WERKS.
+  INSERT ZMDEZ_LOG FROM TABLE LT_ZMDEZ.
+  COMMIT WORK.
+ENDIF.
+
+"获取物料
+SELECT MATNR
+ FROM MARA
+ INTO TABLE @LT_ALV
+ WHERE MATNR IN @S_MATNR
+  AND MTART IN @S_MTART.
+
+DATA:LV_BUKR TYPE C LENGTH 4.
+LV_BUKR = P_WERKS+0(2) && '%'.
+SELECT
+  DISTINCT
+  MATNR
+  FROM MSEG
+  INTO TABLE @DATA(LT_MSEG)
+  WHERE BUKRS LIKE @LV_BUKR.
+
+SELECT
+  DISTINCT
+  MATNR
+  FROM RESB
+  INTO TABLE @DATA(LT_RESB)
+  WHERE WERKS = @P_WERKS.
+
+SORT LT_RESB BY MATNR.
+SORT LT_MSEG BY MATNR.
+
+R_MATNR-LOW = ''.
+R_MATNR-SIGN = 'I'.
+R_MATNR-OPTION = 'EQ'.
+APPEND R_MATNR.
+
+LOOP AT LT_ALV INTO LS_ALV.
+    DATA(LV_TABIX) = SY-TABIX.
+    READ TABLE LT_RESB INTO DATA(LS_RESB) WITH KEY MATNR = LS_ALV-MATNR BINARY SEARCH.
+    IF SY-SUBRC <> 0.
+          READ TABLE LT_MSEG INTO DATA(LS_MSEG) WITH KEY MATNR = LS_ALV-MATNR BINARY SEARCH.
+          IF SY-SUBRC <> 0.
+                DELETE LT_ALV INDEX LV_TABIX.
+                CONTINUE.
+          ENDIF.
+    ENDIF.
+    CLEAR LS_RESB.
+
+    R_MATNR-LOW = LS_ALV-MATNR.
+    R_MATNR-SIGN = 'I'.
+    R_MATNR-OPTION = 'EQ'.
+    APPEND R_MATNR.
+    IF LINES( R_MATNR[] ) > 10000.
+        DELETE FROM ZMDEZ WHERE MATNR IN @R_MATNR[] AND WERKS = @P_WERKS.
+        CLEAR R_MATNR[].
+        COMMIT WORK.
+        R_MATNR-LOW = ''.
+        R_MATNR-SIGN = 'I'.
+        R_MATNR-OPTION = 'EQ'.
+        APPEND R_MATNR.
+    ENDIF.
+ENDLOOP.
+*"删除记录表
+  R_MATNR-LOW = ''.
+  R_MATNR-SIGN = 'I'.
+  R_MATNR-OPTION = 'EQ'.
+  APPEND R_MATNR.
+  DELETE FROM ZMDEZ WHERE MATNR IN @R_MATNR[] AND WERKS = @P_WERKS.
+  CLEAR R_MATNR[].
+
+CLEAR LT_TAB.
+
+CALL 'C_SAPGPARAM'                                    "#EC CI_CCALL
+      ID 'NAME'  FIELD 'rdisp/myname'
+      ID 'VALUE' FIELD G_APPLSERVER.
+
+  SELECT SINGLE CLASSNAME
+    FROM RZLLITAB
+    INTO G_CLASSNAME   "Server Group Name
+    WHERE APPLSERVER = G_APPLSERVER
+    AND GROUPTYPE = 'S'.   "S:服务器组，空:登陆组
+
+*  获取 RFC Serve Group name         End--*
+  CALL FUNCTION 'SPBT_INITIALIZE'
+    EXPORTING
+      GROUP_NAME                     = G_CLASSNAME
+    IMPORTING
+      MAX_PBT_WPS                    = LV_TOTAL
+      FREE_PBT_WPS                   = LV_AVAILABLE
+    EXCEPTIONS
+      INVALID_GROUP_NAME             = 1
+      INTERNAL_ERROR                 = 2
+      PBT_ENV_ALREADY_INITIALIZED    = 3
+      CURRENTLY_NO_RESOURCES_AVAIL   = 4
+      NO_PBT_RESOURCES_FOUND         = 5
+      CANT_INIT_DIFFERENT_PBT_GROUPS = 6
+      OTHERS                         = 7.
+  IF SY-SUBRC = 0.
+    LV_JOB = LV_AVAILABLE * 3 / 4.
+  ENDIF.
+  IF LV_JOB > 20.
+    LV_JOB = 20.
+  ENDIF.
+
+  DATA(LV_COUNT) = LINES( LT_ALV ).
+  WRITE:'数据开始执行，共计冲销：' && LV_COUNT && '条数据' ,/.
+  CLEAR LT_ALV_ERROR.
+  LOOP AT  LT_ALV INTO LS_ALV.
+        LV_TABIX = SY-TABIX.
+        WRITE LS_ALV-MATNR TO G_TASKNAME.
+                 CONDENSE G_TASKNAME.
+                 CONCATENATE 'Task' G_TASKNAME INTO G_TASKNAME.
+        G_INPUT-MATNR = LS_ALV-MATNR.
+        PERFORM YFGTEST002
+              USING G_INPUT G_TASKNAME G_CLASSNAME.
+        CLEAR G_INPUT.
+       IF SND_JOBS - RCV_JOBS >= LV_JOB.
+          WHILE  SND_JOBS <> RCV_JOBS.
+              WRITE: '等待资源。' && '完成：' && RCV_JOBS && '-生成：' && SND_JOBS && '-总计：' && LV_COUNT ,/.
+              WAIT UP TO 10 SECONDS.
+          ENDWHILE.
+        ENDIF.
+        DELETE LT_ALV INDEX LV_TABIX.
+  ENDLOOP.
+  WHILE  SND_JOBS <> RCV_JOBS.
+      WRITE:'等待线程结束。已完成：' && RCV_JOBS && '/' && SND_JOBS && '条数据',/.
+      WAIT UP TO 10 SECONDS.
+  ENDWHILE.
+
+  "错误数据处理
+  LV_TIMES = 10.
+  DATA(LV_LINE_COUNT) = LINES( LT_ALV_ERROR ).
+  WHILE LV_LINE_COUNT > 0 AND LV_TIMES > 0.
+        WRITE:'数据开始执行，共计冲销：' && LV_LINE_COUNT && '条数据，执行第' && LV_TIMES && '次' ,/.
+       LT_ALV = LT_ALV_ERROR.
+       LV_TIMES = LV_TIMES - 1.
+       CLEAR LT_ALV_ERROR.
+       LOOP AT  LT_ALV INTO LS_ALV.
+              LV_TABIX = SY-TABIX.
+              WRITE LS_ALV-MATNR TO G_TASKNAME.
+                       CONDENSE G_TASKNAME.
+                       CONCATENATE 'Task' G_TASKNAME INTO G_TASKNAME.
+              G_INPUT-MATNR = LS_ALV-MATNR.
+              PERFORM YFGTEST002
+                    USING G_INPUT G_TASKNAME G_CLASSNAME.
+              CLEAR G_INPUT.
+             IF SND_JOBS - RCV_JOBS >= LV_JOB.
+                WHILE  SND_JOBS <> RCV_JOBS.
+                    WRITE: '等待资源。' && '完成：' && RCV_JOBS && '-生成：' && SND_JOBS && '-总计：' && LV_LINE_COUNT ,/.
+                    WAIT UP TO 10 SECONDS.
+                ENDWHILE.
+              ENDIF.
+              DELETE LT_ALV INDEX LV_TABIX.
+        ENDLOOP.
+        LV_LINE_COUNT = LINES( LT_ALV_ERROR ).
+  ENDWHILE.
+
+*  WAIT UNTIL SND_JOBS = RCV_JOBS.
+  WHILE  SND_JOBS <> RCV_JOBS.
+      WRITE:'等待线程结束。已完成：' && RCV_JOBS && '/' && SND_JOBS && '条数据',/.
+      WAIT UP TO 10 SECONDS.
+  ENDWHILE.
+
+  CLEAR LV_FLAG.
+  UPDATE ZPPT030 SET FLAG = '' WHERE ZPROGRAM = 'ZPPMRPWRITE'.
+  COMMIT WORK AND WAIT.
+
+  WRITE:SY-UZEIT && '-程序已完成'.
+
+  WRITE:SY-UZEIT && '-写入crd数据，asn数据'.
+  S_MTART-LOW = 'Z003'.
+  S_MTART-OPTION = 'EQ'.
+  S_MTART-SIGN = 'I'.
+  APPEND S_MTART.
+  IF P_WERKS = '1001'.
+      SUBMIT ZPPR048_A WITH P_DATUM = SY-DATUM
+                    WITH S_MATNR IN S_MATNR[]
+                    WITH S_MTART IN S_MTART
+                    WITH P_BG = 'X' AND RETURN.
+      "保存MRP时的ASN数据
+      DELETE FROM ZMMT053 WHERE VERID = 'ZPPMRPWRIT'.
+      COMMIT WORK AND WAIT.
+      S_MATNR-SIGN = 'I'.
+      S_MATNR-OPTION = 'CP'.
+      S_MATNR-LOW = '*'.
+      APPEND S_MATNR.
+      SUBMIT ZMME053 WITH S_MATNR IN S_MATNR[]
+                   WITH P_VERID = 'ZPPMRPWRIT'
+                   WITH P_WWQSH = 'X' AND RETURN.
+      WAIT UP TO 1 SECONDS.
+  ENDIF.
+
+  WRITE:SY-UZEIT && '-数据写入完成'.
+END-OF-SELECTION.
+
+FORM YFGTEST002  USING    FU_INPUT TYPE TY_ALV
+                          FU_TASKNAME TYPE CHAR20
+                          FU_CLASSNAME  TYPE RZLLI_APCL.
+
+  DATA: LV_MSG    TYPE CHAR255.
+  DATA: LS_INPUT TYPE MATNR.
+  DATA: LS_RETURN TYPE  BAPIRET2.
+  DATA: LS_LBLNR TYPE BAPI2017_GM_HEAD_RET.
+
+  LS_INPUT = FU_INPUT-MATNR.
+  IF P_SYN = 'X'.
+    CALL FUNCTION 'ZFM_PP_RET_MATERNAL_V04'
+      EXPORTING
+        IV_INPUT         = LS_INPUT
+        IV_WERKS        = P_WERKS
+     IMPORTING
+       ES_RETURN        = LS_RETURN .
+ ELSE.
+
+
+    CALL FUNCTION 'ZFM_PP_RET_MATERNAL_V04' STARTING NEW TASK FU_TASKNAME
+        DESTINATION IN GROUP FU_CLASSNAME
+        PERFORMING FRM_UPDATE_RETURN ON END OF TASK
+        EXPORTING
+          IV_INPUT         = LS_INPUT
+          IV_WERKS        = P_WERKS
+        EXCEPTIONS
+          COMMUNICATION_FAILURE = 1 MESSAGE LV_MSG
+          SYSTEM_FAILURE        = 2 MESSAGE LV_MSG
+          RESOURCE_FAILURE      = 3.
+     IF SY-SUBRC = 0.
+        SND_JOBS = SND_JOBS + 1.
+*        WRITE: 'SND_JOBS' && SND_JOBS && '已生成' ,/.
+      ELSE.
+          APPEND LS_ALV TO LT_ALV_ERROR.
+      ENDIF.
+ENDIF.
+
+ENDFORM.
+
+*&---------------------------------------------------------------------*
+*& Form FRM_UPDATE_RETURN
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM FRM_UPDATE_RETURN USING FU_TASKNAME.
+  DATA: LS_RETURN TYPE  BAPIRET2.
+  DATA: LS_LBLNR TYPE BAPI2017_GM_HEAD_RET.
+  DATA: LS_ZMMT027 TYPE ZMMT027.
+  DATA: LV_MSG    TYPE CHAR255.
+  RCV_JOBS = RCV_JOBS + 1.
+
+
+  RECEIVE RESULTS FROM FUNCTION 'ZFM_PP_RET_MATERNAL_V04'
+  IMPORTING
+       ES_RETURN        = LS_RETURN
+  EXCEPTIONS
+     COMMUNICATION_FAILURE = 1  MESSAGE LV_MSG
+     SYSTEM_FAILURE        = 2  MESSAGE LV_MSG
+     RESOURCE_FAILURE      = 3.
+
+ENDFORM.
